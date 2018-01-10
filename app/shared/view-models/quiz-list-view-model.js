@@ -31,25 +31,25 @@ function QuizListViewModel(items) {
         };
     }
 
-    // viewModel.loadBackEndDataQuizzes = function () {
-    //     return fetch(config.apiUrl + 'quizzes')
-    //         .then(handleErrors)
-    //         .then(function (response) {
-    //             return response.json();
-    //         })
-    //         .then(function (data) {
-    //             for (i = 0; i < data.length; i++) {
-    //                 addQuizToViewModel(data[i]);
-    //             }
-    //         });
-    // };
+    loadBackEndDataQuizzes = function () {
+        return fetch(config.apiUrl + 'quizzes')
+            .then(handleErrors)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                for (i = 0; i < data.length; i++) {
+                    addQuizToViewModel(data[i]);
+                }
+            });
+    };
 
     viewModel.loadQuizzes = function () {
         if (config.useLocalData) {
             loadMockDataQuizzes();
         }
         else {
-            // loadBackEndDataQuizzes();
+            loadBackEndDataQuizzes();
         }
     }
 
@@ -61,12 +61,11 @@ function QuizListViewModel(items) {
 
     return viewModel;
 }
-
-// function handleErrors(response) {
-//     if (!response.ok) {
-//         console.log(JSON.stringify(response));
-//         throw Error(response.statusText);
-//     }
-//     return response;
-// }
+function handleErrors(response) {
+    if (!response.ok) {
+        console.log(JSON.stringify(response));
+        throw Error(response.statusText);
+    }
+    return response;
+}
 module.exports = QuizListViewModel;
