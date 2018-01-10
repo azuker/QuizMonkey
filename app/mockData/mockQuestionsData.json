@@ -1,0 +1,131 @@
+[
+    {
+        "_id": "5a521bad1edb432e2c4be5c8",
+        "questionText": "When did Christopher Columbus arrive in the 'New World'?",
+        "quiz_id": "5a4cd2aae7a4152314648676",
+        "answers": [
+            "1211",
+            "1492",
+            "1650",
+            "1962"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "_id": "5a57de6000000000dd000000",
+        "questionText": "When did India declare its independence from Britain?",
+        "quiz_id": "5a4cd2aae7a4152314648676",
+        "answers": [
+            "1947",
+            "1957",
+            "1967",
+            "1977"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "_id": "5a521a971edb432e2c4be5c3",
+        "questionText": "John Lennon was part of which band?",
+        "quiz_id": "5a4cd2c0e7a4152314648677",
+        "answers": [
+            "The Rolling Stones",
+            "The Monkeys",
+            "The Beatles",
+            "R.E.M."
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "_id": "5a521ac61edb432e2c4be5c4",
+        "questionText": "Which band is the most commercially successful band in the history of popular music?",
+        "quiz_id": "5a4cd2c0e7a4152314648677",
+        "answers": [
+            "Coldplay",
+            "The Monkeys",
+            "The Beatles",
+            "R.E.M."
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "_id": "5a521ae61edb432e2c4be5c5",
+        "questionText": "When did The Rollings Stones band formed?",
+        "quiz_id": "5a4cd2c0e7a4152314648677",
+        "answers": [
+            "1949",
+            "1962",
+            "1972",
+            "1980"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "_id": "5a57de600000000123456000",
+        "questionText": "Where is France?",
+        "quiz_id": "5a4cee07e7a415231464867e",
+        "locationAnswer": {
+            "latitude": 47,
+            "longitude": 3.6
+        },
+        "errorMarginRadius": 5,
+        "mapSettings": {
+            "latitude": 30,
+            "longitude": 0,
+            "zoom": 2
+        }
+    },
+    {
+        "_id": "5a53e9e00000555000000000",
+        "questionText": "Where is Tokyo?",
+        "quiz_id": "5a4cee07e7a415231464867e",
+        "locationAnswer": {
+            "latitude": 35.43,
+            "longitude": 139.6
+        },
+        "errorMarginRadius": 15,
+        "mapSettings": {
+            "latitude": 0,
+            "longitude": 180,
+            "zoom": 1
+        }
+    },
+    {
+        "_id": "5a521b501edb432e2c4be5c6",
+        "questionText": "In the Summer Olympic Games of 2016, who won the men's 100 meters run gold medal?",
+        "quiz_id": "5a4e8f282fddcd0768fed70a",
+        "answers": [
+            "Kirani James",
+            "Usain Bolt",
+            "Andre De Grasse",
+            "Taoufik Makhloufi"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "_id": "5a521b501edb432e2c4be5c7",
+        "questionText": "For which sport is Serena Williams famous for?",
+        "quiz_id": "5a4e8f282fddcd0768fed70a",
+        "answers": [
+            "Tennis",
+            "Boxing",
+            "Skiing",
+            "Baseball"
+        ],
+        "correctAnswerIndex": 0
+    },
+    [
+        {
+            "_id": "5a521bad1edb432e2c4be5c9",
+            "questionText": "This is a...",
+            "questionImage": "https://i.imgur.com/ooSE2VK.png",
+            "quiz_id": "5a5347eedca8bd4da0715362",
+            "answers": [
+                "lion",
+                "spider",
+                "flower",
+                "beetle"
+            ],
+            "correctAnswerIndex": 3
+        }
+    ]
+]

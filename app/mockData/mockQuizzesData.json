@@ -1,0 +1,34 @@
+[
+    {
+        "_id": "5a4cd2aae7a4152314648676",
+        "name": "History",
+        "image": "https://i.imgur.com/BEZRovh.png"
+    },
+    {
+        "_id": "5a4cd2c0e7a4152314648677",
+        "name": "Music",
+        "image": "https://i.imgur.com/SWbgdNB.png"
+    },
+    {
+        "_id": "5a4cee07e7a415231464867e",
+        "name": "Geography",
+        "image": "https://i.imgur.com/E0xbmeA.png"
+    },
+    {
+        "_id": "5a4e8f282fddcd0768fed70a",
+        "name": "Sports",
+        "image": "https://i.imgur.com/7TMOB8c.png"
+    },
+    {
+        "_id": "5a5347eedca8bd4da0715362",
+        "name": "Nature",
+        "image": "https://i.imgur.com/ooSE2VK.png",
+        "aggregatedScore": 1,
+        "gameCounter": 3
+    },
+    {
+        "_id": "5a53490adca8bd4da0715363",
+        "name": "Movies",
+        "image": "https://i.imgur.com/bbLkMuJ.png"
+    }
+]
