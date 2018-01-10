@@ -11,6 +11,10 @@ components that have the btn class name.
 .btn {
     font-size: 18;
 }
+.quizImage{
+    border-radius: 50%;
+    background-size: cover;
+}
 
 .imageBackgroundContainer{
     background-repeat: no-repeat;

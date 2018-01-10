@@ -16,15 +16,12 @@
     },
     {
         "_id": "5a4e8f282fddcd0768fed70a",
-        "name": "Sports",
-        "image": "https://i.imgur.com/7TMOB8c.png"
+        "name": "Sports"
     },
     {
         "_id": "5a5347eedca8bd4da0715362",
         "name": "Nature",
-        "image": "https://i.imgur.com/ooSE2VK.png",
-        "aggregatedScore": 1,
-        "gameCounter": 3
+        "image": "https://i.imgur.com/ooSE2VK.png"
     },
     {
         "_id": "5a53490adca8bd4da0715363",
