@@ -5,11 +5,11 @@ var mockQuizzesData = require("../../mockData/mockQuizzesData.json");
 function QuizListViewModel(items) {
 
     var viewModel = new ObservableArray(items);
-    getAverageScore = function (quiz) {
-        var averageScore = (quiz.gameCounter && quiz.gameCounter > 0) ?
-            quiz.aggregatedScore / quiz.gameCounter : undefined;
-        return averageScore;
-    }
+    // getAverageScore = function (quiz) {
+    //     var averageScore = (quiz.gameCounter && quiz.gameCounter > 0) ?
+    //         quiz.aggregatedScore / quiz.gameCounter : undefined;
+    //     return averageScore;
+    // }
 
     loadMockDataQuizzes = function () {
         var quizzesArray = mockQuizzesData;

@@ -21,7 +21,9 @@
     {
         "_id": "5a5347eedca8bd4da0715362",
         "name": "Nature",
-        "image": "https://i.imgur.com/ooSE2VK.png"
+        "image": "https://i.imgur.com/ooSE2VK.png",
+        "aggregatedScore": 1,
+        "gameCounter": 3
     },
     {
         "_id": "5a53490adca8bd4da0715363",
