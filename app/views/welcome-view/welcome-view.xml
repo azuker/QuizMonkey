@@ -1,3 +1,13 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd">
-    <Label text="Welcome to Quiz Monkey!"></Label>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      loaded="onPageLoaded"
+      actionBarHidden="true"
+      class="welcome-pageContainer imageBackgroundContainer">
+    <StackLayout class="welcome-stackLayoutContainer"
+                 orientation="vertical">
+        <Label text="Welcome to Quiz Monkey!"
+               class="welcome-text"/>
+        <Button text="Start Here"
+                class="navigationButton"
+                onTap="onButtonTapped"/>
+    </StackLayout>
 </Page>

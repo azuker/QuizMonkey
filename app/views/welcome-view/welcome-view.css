@@ -1,0 +1,17 @@
+.welcome-pageContainer{
+    padding: 25;
+    background-image: url("res://monkeybackground");
+}
+
+.welcome-text{
+    font-size: 45;
+    vertical-align: center;
+    text-align: center;
+    white-space: normal;
+    margin-bottom: 20;
+    color: rgb(49, 2, 2);
+}
+
+.welcome-stackLayoutContainer{
+    vertical-align: bottom;
+}
