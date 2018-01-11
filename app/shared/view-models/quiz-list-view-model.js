@@ -42,14 +42,19 @@ function QuizListViewModel(items) {
             });
     };
 
-    viewModel.loadQuizzes = function () {
-        if (config.useLocalData) {
-            loadMockDataQuizzes();
-        }
-        else {
-            loadBackEndDataQuizzes();
-        }
+viewModel.loadQuizzes = function () {
+    if (config.useLocalData) {
+        setTimeout(loadMockDataQuizzes, 5000);
+        return new Promise(resolve =>
+            setTimeout(resolve, 5000)
+        );
     }
+    else {
+        return new Promise(resolve =>
+            setTimeout(resolve, 5000)
+        ).then(loadBackEndDataQuizzes);
+    }
+}
 
     viewModel.clearQuizzes = function () {
         while (viewModel.length) {

@@ -29,3 +29,10 @@
 .quizList-quizAverage{
     text-align: center;
 }
+
+ActivityIndicator{
+    width: 50;
+    height: 50;
+    align-self: center;
+    vertical-align: center;
+}

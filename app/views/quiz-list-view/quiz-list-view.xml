@@ -6,12 +6,11 @@
                class="quizList-headerText imageBackgroundContainer" />
         <ListView items="{{ quizList }}" row="1">
             <ListView.itemTemplate>
-                <GridLayout columns="auto, *, 100" class="quizList-itemContainer"> <!-- added 1 column -->
+                <GridLayout columns="auto, *, 100" class="quizList-itemContainer"> 
                     <Image src="{{ image ? image : 'res://unknownquizimage' }}"
                            class="quizList-image quizImage"
                            stretch="aspectFill"/>
                     <Label text="{{ name }}" col="1" class="quizList-text"/>
-                    <!-- added label-->
                     <Label col="2" class="quizList-text quizList-quizAverage"
                            textWrap="true"
                            visibility="{{averageScoreExists? 'visible' : 'collapsed'}}">
@@ -21,7 +20,6 @@
                                   fontWeight="Bold"/>
                         </FormattedString>
                     </Label>
-                    <!-- added label-->
                     <Label col="2"
                            class="quizList-text quizList-quizAverage"
                            visibility="{{!averageScoreExists? 'visible' : 'collapsed'}}"
@@ -29,5 +27,6 @@
                 </GridLayout>
             </ListView.itemTemplate>
         </ListView>
+        <ActivityIndicator busy="{{ isLoading }}" row="1" />
     </GridLayout>
 </Page>
