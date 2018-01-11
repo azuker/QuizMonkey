@@ -24,7 +24,8 @@ exports.onSelectQuiz = function (args) {
     quizListData.set("isLoading", true);
     quiz.loadQuestions().then(function () {
         quizListData.set("isLoading", false);
-        // var quizLength = quiz.questions.length;
+        var quizLength = quiz.questions.length;
+        console.log('quizLength: ' + quizLength);
         // if (quizLength > 0) {
         //     console.log("loaded " + quizLength + " questions to quiz. Soon navigation to questions will be possible.");
         // }
