@@ -14,21 +14,21 @@ function QuizListViewModel(items) {
         return averageScore;
     }
 
-    addQuizToViewModel = function (quiz) {
-        var averageScore = getAverageScore(quiz);
-        viewModel.push({
-            id: quiz.id,
-            name: quiz.name,
-            image: quiz.image,
-            averageScore: averageScore,
-            averageScoreExists: typeof averageScore !== 'undefined'
-        });
-    }
-    loadMockDataQuizzes = function () {
-        var quizzesArray = mockQuizzesData;
-        for (i = 0; i < quizzesArray.length; i++) {
-            addQuizToViewModel(quizzesArray[i]);
+    addQuizzesToViewModel = function (quizzes) {
+        for (i = 0; i < quizzes.length; i++) {
+            var averageScore = getAverageScore(quizzes[i]);
+            viewModel.push({
+                id: quizzes[i].id,
+                name: quizzes[i].name,
+                image: quizzes[i].image,
+                averageScore: averageScore,
+                averageScoreExists: typeof averageScore !== 'undefined'
+            });
         };
+    }
+
+    loadMockDataQuizzes = function () {
+        addQuizzesToViewModel(mockQuizzesData);
     }
 
     loadBackEndDataQuizzes = function () {
@@ -38,9 +38,7 @@ function QuizListViewModel(items) {
                 return response.json();
             })
             .then(function (data) {
-                for (i = 0; i < data.length; i++) {
-                    addQuizToViewModel(data[i]);
-                }
+                addQuizzesToViewModel(data);
             });
     };
 
