@@ -113,19 +113,17 @@
         ],
         "correctAnswerIndex": 0
     },
-    [
-        {
-            "_id": "5a521bad1edb432e2c4be5c9",
-            "questionText": "This is a...",
-            "questionImage": "https://i.imgur.com/ooSE2VK.png",
-            "quiz_id": "5a5347eedca8bd4da0715362",
-            "answers": [
-                "lion",
-                "spider",
-                "flower",
-                "beetle"
-            ],
-            "correctAnswerIndex": 3
-        }
-    ]
+    {
+        "_id": "5a521bad1edb432e2c4be5c9",
+        "questionText": "This is a...",
+        "questionImage": "https://i.imgur.com/ooSE2VK.png",
+        "quiz_id": "5a5347eedca8bd4da0715362",
+        "answers": [
+            "lion",
+            "spider",
+            "flower",
+            "beetle"
+        ],
+        "correctAnswerIndex": 3
+    }
 ]
