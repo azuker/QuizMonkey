@@ -18,7 +18,7 @@ function QuizListViewModel(items) {
         for (i = 0; i < quizzes.length; i++) {
             var averageScore = getAverageScore(quizzes[i]);
             viewModel.push({
-                id: quizzes[i].id,
+                id: quizzes[i]._id,
                 name: quizzes[i].name,
                 image: quizzes[i].image,
                 averageScore: averageScore,
