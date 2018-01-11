@@ -4,9 +4,12 @@
     <GridLayout rows="auto, *">
         <Label text="Choose Your Quiz"
                class="quizList-headerText imageBackgroundContainer" />
-        <ListView items="{{ quizList }}" row="1">
+        <ListView items="{{ quizList }}"
+                  row="1"
+                  itemTap="onSelectQuiz">
             <ListView.itemTemplate>
-                <GridLayout columns="auto, *, 100" class="quizList-itemContainer"> 
+                <GridLayout columns="auto, *, 100"
+                            class="quizList-itemContainer">
                     <Image src="{{ image ? image : 'res://unknownquizimage' }}"
                            class="quizList-image quizImage"
                            stretch="aspectFill"/>
