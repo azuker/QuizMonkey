@@ -1,7 +1,5 @@
-exports.onPageLoaded = function(args){
-    console.log("welcome page loaded");
-}
+var navigationModule = require("../../shared/navigation");
 
-exports.onButtonTapped = function(args){
-    console.log("start button tapped");
+exports.onButtonTapped = function (args) {
+    navigationModule.goToQuizList();
 }

@@ -6,10 +6,9 @@ purpose of the file is to pass control to the app’s first module.
 
 require("./bundle-config");
 const application = require("application");
+var navigationModule = require("./shared/navigation");
 
-// application.start({ moduleName: "views/welcome-view/welcome-view" });
-application.start({ moduleName: "views/quiz-list-view/quiz-list-view" });
-
+application.start({ moduleName: navigationModule.startupView() });
 /*
 Do not place any code after the application has been started as it will not
 be executed on iOS.
