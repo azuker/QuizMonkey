@@ -25,12 +25,14 @@ function quizViewModel(quiz) {
     viewModel.loadQuestions = function () {
         if (config.useLocalData) {
             return new Promise(resolve =>
-                setTimeout(resolve, 3000)
+                setTimeout(resolve, 0)
+                // changeBack 3000 YS
             ).then(loadMockDataQuestions);
         }
         else {
             return new Promise(resolve =>
-                setTimeout(resolve, 3000)
+                setTimeout(resolve, 0)
+                // changeBack 3000 YS
             ).then(loadBackEndDataQuestions);
         }
     }
