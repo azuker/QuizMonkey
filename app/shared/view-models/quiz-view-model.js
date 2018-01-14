@@ -49,14 +49,6 @@ function handleErrors(response) {
 module.exports = quizViewModel;
 
 
-// addQuestionsToViewModel = function (quizRelatedQuestions) {
-//     var questions = [];
-//     for (i = 0; i < quizRelatedQuestions.length; i++) {
-//         questions.push(quizRelatedQuestions[i]);
-//     }
-//     viewModel.questions = questions;
-// }
-
     // viewModel.incrementScore = function () {
     //     var newScore = viewModel.currentScore + 1;
     //     viewModel.currentScore = newScore;
