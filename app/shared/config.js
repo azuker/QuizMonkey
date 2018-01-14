@@ -1,4 +1,4 @@
 module.exports = {
-    useLocalData: false,
+    useLocalData: true,
     apiUrl: "http://192.168.10.125:3001/" /* replace IP with your local IP  */
 };
