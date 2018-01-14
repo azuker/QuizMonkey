@@ -2,9 +2,48 @@
       actionBarHidden="true"
       navigatingTo="questionPageNavigatedTo"
       loaded="onQuestionPageLoaded">
-    <StackLayout>
-        <Label text="you've reached the question view!"/>
-        <Label text="{{'question id: ' + question._id}}"/>
-        <!-- <Label text="{{'progress: ' + progress}}"/> -->
-    </StackLayout>
+    <GridLayout rows="auto, auto, auto,*"
+                class="questionContainer"
+                backgroundColor="{{backgroundColor}}">
+        <Label text="{{progress}}"
+               row="0"
+               class="progressText"/>
+        <Label text="{{question.questionText}}"
+               row="1"
+               class="questionText"/>
+        <Image src="{{question.questionImage}}"
+               row="2"
+               class="questionImage"
+               visibility="{{question.questionImage ? 'visible' : 'collapsed'}}"
+               horizontalAlignment="center"
+               stretch="none"/>
+        <ListView items="{{ question.answers }}"
+                  row="3"
+                  separatorColor="transparent"
+                  verticalAlignment="bottom">
+    <ListView.itemTemplate>
+        <Label text="{{ $value }}" class="answerItemText"/>
+    </ListView.itemTemplate>
+        </ListView>
+        <!-- itemTap="onSelectMultipleChoiceAnswer"
+                id="answersListView" -->
+        <!-- visibility="{{question.mapQuestion ? 'collapsed' : 'visible'}}" -->
+        <!-- <ListView.itemTemplate>
+        <StackLayout>
+            <GridLayout columns="*, auto" class="{{showCorrect ? 'answerItemContainer answerItemContainerShowCorrect' : 'answerItemContainer'}}">
+                <Label text="{{ answerText }}" class="{{(isSelected && !isCorrect) ? 'answerItemText answerItemTextSelectedWrong' : 'answerItemText'}}"/>
+                <Image col="1" visibility="{{isSelected ? 'visible' : 'hidden'}}" class="resultIndicator" src="{{isCorrect? '~/images/vMark.png' : '~/images/xMark.png'}}" stretch="aspectFill"/>
+            </GridLayout>
+        </StackLayout>
+    </ListView.itemTemplate> -->
+        <!-- this is an extra wrapper otherwise margin do not work here (seems like a bug): -->
+
+        <!-- <maps:mapView visibility="{{question.mapQuestion ? 'visible' : 'collapsed'}}"
+                row="3"
+                latitude="{{question.mapSettings.latitude}}"
+                longitude="{{question.mapSettings.longitude}}"
+                zoom="{{question.mapSettings.zoom}}"
+                mapReady="onMapReady"
+                coordinateTapped="onCoordinateTapped"/> -->
+    </GridLayout>
 </Page>

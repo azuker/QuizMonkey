@@ -1,0 +1,64 @@
+/* .answerItemText{
+    font-size: 15;
+    color: black;
+} */
+/* 
+.answerItemTextSelectedWrong{
+    color: red;
+}
+
+.answerItemContainer{
+    padding: 15, 10;
+    margin-top: 10;
+    border-width: 2;
+    border-color: rgb(43, 53, 50);
+    border-radius: 10;
+    background-color: white;
+}
+.answerItemContainerShowCorrect{
+    border-width: 5;
+    padding: 12,7;
+    border-color: limegreen;
+    animation-name: correctAnswerColorAnimation;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes correctAnswerColorAnimation {
+    0% {
+        background-color: white;
+    }
+    100% {
+        background-color: rgb(112, 241, 112);
+    }
+}
+ */
+.progressText{
+    text-align: center;
+    color: white
+}
+
+.questionText{
+    text-align: center;
+    margin-top: 40;
+    margin-bottom: 20;
+    font-size: 25;
+    white-space: normal;
+    color: white
+}
+
+.questionContainer{
+    padding: 10, 20;
+}
+
+.questionImage{
+    max-height: 150;
+    border-width: 3;
+    border-color: black;
+    border-radius: 10;
+}
+
+/* .resultIndicator{
+    width: 20;
+    height: 20;
+}
+ */
