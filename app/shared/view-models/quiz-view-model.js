@@ -6,34 +6,34 @@ function quizViewModel(quiz) {
     var viewModel = new observableModule.fromObject(quiz)
     viewModel.currentScore = 0;
 
-loadBackEndDataQuestions = function () {
-    return fetch(config.apiUrl + 'quizzes/' + quiz.id + '/questions')
-        .then(handleErrors)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            viewModel.questions = data;
-        })
-};
+    loadBackEndDataQuestions = function () {
+        return fetch(config.apiUrl + 'quizzes/' + quiz.id + '/questions')
+            .then(handleErrors)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                viewModel.questions = data;
+            })
+    };
 
-loadMockDataQuestions = function () {
-    var quizRelatedQuestions = mockQuestionsData.filter(q => q.quiz_id === quiz.id)
-    viewModel.questions = quizRelatedQuestions;
-}
+    loadMockDataQuestions = function () {
+        var quizRelatedQuestions = mockQuestionsData.filter(q => q.quiz_id === quiz.id)
+        viewModel.questions = quizRelatedQuestions;
+    }
 
-viewModel.loadQuestions = function () {
-    if (config.useLocalData) {
-        return new Promise(resolve =>
-            setTimeout(resolve, 3000)
-        ).then(loadMockDataQuestions);
+    viewModel.loadQuestions = function () {
+        if (config.useLocalData) {
+            return new Promise(resolve =>
+                setTimeout(resolve, 3000)
+            ).then(loadMockDataQuestions);
+        }
+        else {
+            return new Promise(resolve =>
+                setTimeout(resolve, 3000)
+            ).then(loadBackEndDataQuestions);
+        }
     }
-    else {
-        return new Promise(resolve =>
-            setTimeout(resolve, 3000)
-        ).then(loadBackEndDataQuestions);
-    }
-}
 
     return viewModel;
 }
