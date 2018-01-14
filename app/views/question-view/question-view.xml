@@ -20,22 +20,24 @@
         <ListView items="{{ question.answers }}"
                   row="3"
                   separatorColor="transparent"
-                  verticalAlignment="bottom">
-    <ListView.itemTemplate>
-        <Label text="{{ $value }}" class="answerItemText"/>
-    </ListView.itemTemplate>
+                  verticalAlignment="bottom"
+                  itemTap="onSelectMultipleChoiceAnswer">
+<ListView.itemTemplate>
+    <StackLayout>
+        <GridLayout columns="*, auto"
+                    class="{{showCorrect ? 'answerItemContainer answerItemContainerShowCorrect' : 'answerItemContainer'}}">
+            <Label text="{{ answerText }}"
+                    class="{{(isSelected && !isCorrect) ? 'answerItemText answerItemTextSelectedWrong' : 'answerItemText'}}"/>
+            <Image col="1"
+                    visibility="{{isSelected ? 'visible' : 'hidden'}}"
+                    class="resultIndicator" src="{{isCorrect? 'res://vmark' : 'res://xmark'}}"
+                    stretch="aspectFill"/>
+        </GridLayout>
+    </StackLayout>
+</ListView.itemTemplate>
         </ListView>
-        <!-- itemTap="onSelectMultipleChoiceAnswer"
-                id="answersListView" -->
+        <!--  id="answersListView" -->
         <!-- visibility="{{question.mapQuestion ? 'collapsed' : 'visible'}}" -->
-        <!-- <ListView.itemTemplate>
-        <StackLayout>
-            <GridLayout columns="*, auto" class="{{showCorrect ? 'answerItemContainer answerItemContainerShowCorrect' : 'answerItemContainer'}}">
-                <Label text="{{ answerText }}" class="{{(isSelected && !isCorrect) ? 'answerItemText answerItemTextSelectedWrong' : 'answerItemText'}}"/>
-                <Image col="1" visibility="{{isSelected ? 'visible' : 'hidden'}}" class="resultIndicator" src="{{isCorrect? '~/images/vMark.png' : '~/images/xMark.png'}}" stretch="aspectFill"/>
-            </GridLayout>
-        </StackLayout>
-    </ListView.itemTemplate> -->
         <!-- this is an extra wrapper otherwise margin do not work here (seems like a bug): -->
 
         <!-- <maps:mapView visibility="{{question.mapQuestion ? 'visible' : 'collapsed'}}"

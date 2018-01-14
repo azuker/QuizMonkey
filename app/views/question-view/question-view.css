@@ -1,8 +1,8 @@
-/* .answerItemText{
+.answerItemText{
     font-size: 15;
     color: black;
-} */
-/* 
+} 
+
 .answerItemTextSelectedWrong{
     color: red;
 }
@@ -15,6 +15,7 @@
     border-radius: 10;
     background-color: white;
 }
+
 .answerItemContainerShowCorrect{
     border-width: 5;
     padding: 12,7;
@@ -23,6 +24,7 @@
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
+
 @keyframes correctAnswerColorAnimation {
     0% {
         background-color: white;
@@ -31,7 +33,12 @@
         background-color: rgb(112, 241, 112);
     }
 }
- */
+
+.resultIndicator{
+    width: 20;
+    height: 20;
+}
+
 .progressText{
     text-align: center;
     color: white
@@ -57,8 +64,4 @@
     border-radius: 10;
 }
 
-/* .resultIndicator{
-    width: 20;
-    height: 20;
-}
- */
+
