@@ -48,11 +48,11 @@
     vertical-align: center;
     text-align: center;
 }
-/* 
-.yourScoreText{
+ 
+.userScoreText{
     color: black;
     font-size: 44;
-} */
+} 
 
 .averageScoreText{
     margin-left: 5;

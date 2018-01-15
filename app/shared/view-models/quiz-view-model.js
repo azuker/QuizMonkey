@@ -1,6 +1,7 @@
 var observableModule = require("data/observable");
 var mockQuestionsData = require("../../mockData/mockQuestionsData.json");
 var config = require("../../shared/config");
+var utilities = require("../../shared/utilities");
 
 function quizViewModel(quiz) {
     var viewModel = new observableModule.fromObject(quiz)
@@ -47,6 +48,8 @@ viewModel.postScore = function () {
     var quizLength = viewModel.questions.length;
     var finalScore = correctAnswers / quizLength;
     viewModel.set("finalScore", finalScore);
+    var presentableScore = utilities.convertFractionToPercentageString(finalScore);
+    viewModel.set("presentableScore", presentableScore);
 
     if (config.useLocalData) {
         return fetch(config.apiUrl + 'quizzes/' + quiz.id, {

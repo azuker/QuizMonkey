@@ -20,13 +20,13 @@
                horizontalAlignment="right"
                src='res://share'
                stretch="aspectFill"/> -->
-        <!-- <StackLayout row="2"
+        <StackLayout row="2"
                      horizontalAlignment="center">
             <Label text="Your Score:"
                    class="scoreTitleText" />
-            <Label text="{{userPersentableScore}}"
-                   class="scoreText yourScoreText"/>
-        </StackLayout> -->
+            <Label text="{{quiz.presentableScore}}"
+                   class="scoreText userScoreText"/>
+        </StackLayout>
         <StackLayout row="3"
                      class="communityScoreContainer"
                      horizontalAlignment="center"
