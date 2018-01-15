@@ -6,6 +6,20 @@ exports.startupView = function () {
     // changeBack welcome YS
 }
 
+exports.goToQuizSummaryView = function (quiz) {
+    var topmost = frameModule.topmost();
+    topmost.navigate({
+        moduleName: 'views/quiz-summary-view/quiz-summary-view',
+        context: { quiz: quiz },
+        backstackVisible: false,
+        transition: {
+            name: "slideTop",
+            duration: 350,
+            curve: "easeIn"
+        }
+    });
+}
+
 exports.goToQuizList = function () {
     var topmost = frameModule.topmost();
     topmost.navigate("views/quiz-list-view/quiz-list-view");

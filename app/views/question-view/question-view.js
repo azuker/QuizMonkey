@@ -52,9 +52,9 @@ navigateToNextPage = function () {
     else {
         quiz.postScore();
         console.log('quiz ended');
+        navigationModule.goToQuizSummaryView(quiz);
     };
 }
-// navigationModule.goToQuizSummaryView(quiz);
 
 exports.onSelectMultipleChoiceAnswer = function (args) {
     disableList(args);
