@@ -22,7 +22,8 @@
                   separatorColor="transparent"
                   verticalAlignment="bottom"
                   itemTap="onSelectMultipleChoiceAnswer"
-                  id="answersListView">
+                  id="answersListView"
+                  visibility="{{question.answers ? 'visible' : 'collapsed'}}">
             <ListView.itemTemplate>
                 <ContentView>
                     <GridLayout columns="*, auto"
@@ -37,12 +38,13 @@
                 </ContentView>
             </ListView.itemTemplate>
         </ListView>
-        <!--  id="answersListView" -->
-        <!-- visibility="{{question.mapQuestion ? 'collapsed' : 'visible'}}" -->
-        <!-- this is an extra wrapper otherwise margin do not work here (seems like a bug): -->
+        <Label text="map will come here - checking if answers are there"
+               row="3"
+               visibility="{{question.answers ? 'collapsed' : 'visible'}}"
+               backgroundColor="deepPink"/>
 
         <!-- <maps:mapView visibility="{{question.mapQuestion ? 'visible' : 'collapsed'}}"
-                row="3"
+                
                 latitude="{{question.mapSettings.latitude}}"
                 longitude="{{question.mapSettings.longitude}}"
                 zoom="{{question.mapSettings.zoom}}"

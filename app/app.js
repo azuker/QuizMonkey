@@ -7,6 +7,9 @@ purpose of the file is to pass control to the app’s first module.
 require("./bundle-config");
 const application = require("application");
 var navigationModule = require("./shared/navigation");
+if (application.ios) {
+    GMSServices.provideAPIKey("AIzaSyBjhCQoXVLt2ByhXr2iQMgLo7iO0VJ8Y0k");
+}
 
 application.start({ moduleName: navigationModule.startupView() });
 /*
