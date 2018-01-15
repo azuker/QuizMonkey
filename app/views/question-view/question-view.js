@@ -51,7 +51,6 @@ navigateToNextPage = function () {
     }
     else {
         quiz.postScore();
-        console.log('quiz ended');
         navigationModule.goToQuizSummaryView(quiz);
     };
 }
@@ -60,7 +59,6 @@ exports.onSelectMultipleChoiceAnswer = function (args) {
     disableList(args);
     var chosenAnswer = args.view.bindingContext;
     var answeredCorrectly = vm.checkMultipleChoiceAnswer(chosenAnswer);
-    console.log('answeredCorrectly: ' + answeredCorrectly);
     if (answeredCorrectly) {
         quiz.incrementScore();
     }
