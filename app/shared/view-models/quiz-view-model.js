@@ -37,10 +37,30 @@ function quizViewModel(quiz) {
         }
     }
 
-viewModel.incrementScore = function () {
-    var newScore = viewModel.currentScore + 1;
-    viewModel.currentScore = newScore;
-}
+    viewModel.incrementScore = function () {
+        var newScore = viewModel.currentScore + 1;
+        viewModel.currentScore = newScore;
+    }
+
+viewModel.postScore = function () {
+    var correctAnswers = viewModel.currentScore;
+    var quizLength = viewModel.questions.length;
+    var finalScore = correctAnswers / quizLength;
+    viewModel.set("finalScore", finalScore);
+
+    if (config.useLocalData) {
+        return fetch(config.apiUrl + 'quizzes/' + quiz.id, {
+            method: "PATCH",
+            body: JSON.stringify({
+                score: finalScore,
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(handleErrors);
+    }
+};
+
     return viewModel;
 }
 function handleErrors(response) {

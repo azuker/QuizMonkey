@@ -50,11 +50,11 @@ navigateToNextPage = function () {
         navigationModule.goToQuestionView(quiz, questionIndex + 1);
     }
     else {
+        quiz.postScore();
         console.log('quiz ended');
     };
 }
-        // quiz.postScore();
-        // navigationModule.goToQuizSummaryView(quiz);
+// navigationModule.goToQuizSummaryView(quiz);
 
 exports.onSelectMultipleChoiceAnswer = function (args) {
     disableList(args);
