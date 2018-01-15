@@ -12,18 +12,14 @@
     background-image: url("res://summaryviewbackground");
 }
 
-/* .shareIcon{
+.shareIconContainer{
     width: 50;
     height: 50;
     border-radius: 25;
-    padding: 5;
-    background-color: rgba(3,81,83, 0.5);
-    font-size: 15;
-    text-align: center; 
+    background-color: rgba(3,81,83, 0.8);
     vertical-align: bottom;
     margin-right: 30;
-    background-size: cover;
-} */
+}
 
 .quizName{
     border-radius: 50%;

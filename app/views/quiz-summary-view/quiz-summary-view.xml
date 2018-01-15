@@ -14,12 +14,15 @@
                class="quizName"
                horizontalAlignment="left"
                loaded="quizNameLoaded"/>
-        <!-- <Image class="shareIcon"
-               tap="shareTapped"
-               row="2"
-               horizontalAlignment="right"
-               src='res://share'
-               stretch="aspectFill"/> -->
+        <ContentView class="shareIconContainer"
+                     row="2"
+                     horizontalAlignment="right">
+            <Image tap="shareTapped"
+                   src='res://share'
+                   stretch="AspectFill"
+                   horizontalAlignment="center"
+                   verticalAlignment="center"/>
+        </ContentView>
         <StackLayout row="2"
                      horizontalAlignment="center">
             <Label text="Your Score:"
@@ -37,9 +40,9 @@
             <Label text="{{quiz.averageScore}}"
                    class="scoreText averageScoreText" />
         </StackLayout>
-        <!-- <Button text="back to quiz list"
-                tap="backToQuizListTapped"
-                class="navigationButton"
-                row="5"/> -->
+<Button text="back to quiz list"
+        tap="backToQuizListTapped"
+        class="navigationButton"
+        row="5"/>
     </GridLayout>
 </Page>

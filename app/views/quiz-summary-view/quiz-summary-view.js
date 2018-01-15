@@ -1,20 +1,18 @@
-// var navigationModule = require("../../shared/navigation");
+var navigationModule = require("../../shared/navigation");
 var observable = require("data/observable");
-// var socialShare = require("nativescript-social-share");
-// var view = require("ui/core/view");
+var socialShare = require("nativescript-social-share");
 
 var quizSummaryData = new observable.Observable()
 
-// exports.backToQuizListTapped = function (args) {
-//     navigationModule.goToQuizList();
-// }
+exports.backToQuizListTapped = function (args) {
+    navigationModule.goToQuizList();
+}
 
-// exports.shareTapped = function (args) {
-//     var userAverage = quizSummaryData.get("userPersentableScore");
-//     var quizName = quizSummaryData.get("quiz").get("name");
-
-//     socialShare.shareText("Hi, I just scored " + userAverage + " on the " + quizName + " quiz in the best quiz app ever!");
-// }
+exports.shareTapped = function (args) {
+    var userScore = quizSummaryData.get("quiz").get("presentableScore");
+    var quizName = quizSummaryData.get("quiz").get("name");
+    socialShare.shareText("Hi, I just scored " + userScore + " on the " + quizName + " quiz in QuizMonkey - the best quiz app ever!");
+}
 
 exports.quizNameLoaded = function (args) {
     if (args.object.android) {
