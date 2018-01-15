@@ -37,6 +37,10 @@ function quizViewModel(quiz) {
         }
     }
 
+viewModel.incrementScore = function () {
+    var newScore = viewModel.currentScore + 1;
+    viewModel.currentScore = newScore;
+}
     return viewModel;
 }
 function handleErrors(response) {

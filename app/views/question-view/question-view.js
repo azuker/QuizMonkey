@@ -1,5 +1,8 @@
 var QuestionViewModel = require('../../shared/view-models/question-view-model');
 var observableModule = require("data/observable");
+var view = require("ui/core/view");
+var listViewModule = require("ui/list-view");
+var navigationModule = require("../../shared/navigation");
 
 var vm;
 var quiz
@@ -32,23 +35,34 @@ exports.questionPageNavigatedTo = function (args) {
     setBackgroundColor(page);
 }
 
-// disableList = function (args) {
-//     var parent = args.object.parent;
-//     if (parent) {
-//         var list = view.getViewById(parent, "answersListView");
-//         if (list) {
-//             list.isUserInteractionEnabled = false;
-//         }
-//     }
-// }
-exports.onSelectMultipleChoiceAnswer = function (args) {
-    // disableList(args);
-    var chosenAnswer = args.view.bindingContext;
+disableList = function (args) {
+    var parent = args.object.parent;
+    if (parent) {
+        var list = view.getViewById(parent, "answersListView");
+        if (list) {
+            list.removeEventListener(listViewModule.ListView.itemTapEvent);
+        }
+    }
+}
 
+navigateToNextPage = function () {
+    if (quizLength > questionIndex + 1) {
+        navigationModule.goToQuestionView(quiz, questionIndex + 1);
+    }
+    else {
+        console.log('quiz ended');
+    };
+}
+        // quiz.postScore();
+        // navigationModule.goToQuizSummaryView(quiz);
+
+exports.onSelectMultipleChoiceAnswer = function (args) {
+    disableList(args);
+    var chosenAnswer = args.view.bindingContext;
     var answeredCorrectly = vm.checkMultipleChoiceAnswer(chosenAnswer);
     console.log('answeredCorrectly: ' + answeredCorrectly);
-    // if (answeredCorrectly) {
-    //     quiz.incrementScore();
-    // }
-    // setTimeout(navigateToNextPage, 1000);
+    if (answeredCorrectly) {
+        quiz.incrementScore();
+    }
+    setTimeout(navigateToNextPage, 1000);
 }
