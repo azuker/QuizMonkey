@@ -5,6 +5,8 @@ var listViewModule = require("ui/list-view");
 var navigationModule = require("../../shared/navigation");
 var mapsModule = require("nativescript-google-maps-sdk");
 var mapStyle = require("../../tools/assets/map-style.json");
+var application = require('application');
+var dialogs = require("ui/dialogs");
 
 var vm;
 var quiz
@@ -23,6 +25,35 @@ setBackgroundColor = function (page) {
 exports.onQuestionPageLoaded = function (args) {
     const page = args.object;
     page.bindingContext = questionData;
+    if (application.android) {
+        application.android.addEventListener(application.AndroidApplication.activityBackPressedEvent, backOrLeavePressed);
+    }
+}
+
+exports.onQuestionPageUnloaded = function () {
+    if (application.android) {
+        application.android.removeEventListener(application.AndroidApplication.activityBackPressedEvent, backOrLeavePressed);
+    }
+};
+
+backOrLeavePressed = function (args) {
+    if (args) {
+        args.cancel = true;
+    }
+    dialogs.confirm({
+        title: "Back/Leave Button Pressed",
+        message: "Leaving now will take you the quiz-list page and erase this quiz's progress",
+        okButtonText: "Leave Quiz",
+        cancelButtonText: "Cancel",
+    }).then(function (result) {
+        if (result) {
+            navigationModule.goToQuizList();
+        }
+    });
+}
+
+exports.onLeaveTapped = function () {
+    backOrLeavePressed();
 }
 
 exports.questionPageNavigatedTo = function (args) {

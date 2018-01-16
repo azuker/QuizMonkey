@@ -2,10 +2,16 @@
       xmlns:maps="nativescript-google-maps-sdk"
       actionBarHidden="true"
       navigatingTo="questionPageNavigatedTo"
-      loaded="onQuestionPageLoaded">
+      loaded="onQuestionPageLoaded"
+      unloaded="onQuestionPageUnloaded">
     <GridLayout rows="auto, auto, auto,*"
                 class="questionContainer"
                 backgroundColor="{{backgroundColor}}">
+        <Label text="Leave Quiz"
+               row="0"
+               class="progressText"
+               tap="onLeaveTapped"
+               horizontalAlignment="left"/>
         <Label text="{{progress}}"
                row="0"
                class="progressText"/>
