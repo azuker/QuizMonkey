@@ -3,11 +3,14 @@ var observableModule = require("data/observable");
 var view = require("ui/core/view");
 var listViewModule = require("ui/list-view");
 var navigationModule = require("../../shared/navigation");
+var mapsModule = require("nativescript-google-maps-sdk");
+var mapStyle = require("../../tools/assets/map-style.json");
 
 var vm;
 var quiz
 var questionIndex;
 var quizLength;
+var mapView = null;
 
 var questionData = new observableModule.Observable();
 
@@ -63,4 +66,47 @@ exports.onSelectMultipleChoiceAnswer = function (args) {
         quiz.incrementScore();
     }
     setTimeout(navigateToNextPage, 1000);
+}
+
+exports.onMapReady = function (args) {
+    mapView = args.object;
+    mapView.settings.compassEnabled = false;
+    mapView.settings.indoorLevelPickerEnabled = false;
+    mapView.settings.mapToolbarEnabled = false;
+    mapView.settings.myLocationButtonEnabled = false;
+    mapView.settings.rotateGesturesEnabled = false;
+    mapView.settings.scrollGesturesEnabled = false;
+    mapView.settings.tiltGesturesEnabled = false;
+    mapView.settings.zoomControlsEnabled = false;
+    mapView.settings.zoomGesturesEnabled = false;
+    mapView.setStyle(mapStyle);
+}
+
+showCorrectMarker = function () {
+    var correctMarker = new mapsModule.Marker();
+    var correctLat = vm.locationAnswer.latitude;
+    var correctLong = vm.locationAnswer.longitude;
+    correctMarker.position = mapsModule.Position.positionFromLatLng(correctLat, correctLong);
+    correctMarker.color = 'green';
+    mapView.addMarker(correctMarker);
+}
+
+showUserMarker = function (args, answeredCorrectly) {
+    var userMarker = new mapsModule.Marker();
+    userMarker.position = mapsModule.Position.positionFromLatLng(args.position.latitude, args.position.longitude);
+    userMarker.icon = answeredCorrectly ? 'vmarkmap' : 'xmarkmap';
+    userMarker.anchor = [0.5, 0.5];
+    mapView.addMarker(userMarker);
+}
+
+exports.onCoordinateTapped = function (args) {
+    mapView.removeEventListener(mapsModule.MapView.coordinateTappedEvent);
+    var answeredCorrectly = vm.checkMapLocationAnswer(args.position.latitude, args.position.longitude);
+    showUserMarker(args, answeredCorrectly);
+    setTimeout(showCorrectMarker, 500);
+    if (answeredCorrectly) {
+        quiz.incrementScore();
+    }
+
+    setTimeout(navigateToNextPage, 2000);
 }

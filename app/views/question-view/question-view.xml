@@ -1,4 +1,5 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      xmlns:maps="nativescript-google-maps-sdk"
       actionBarHidden="true"
       navigatingTo="questionPageNavigatedTo"
       loaded="onQuestionPageLoaded">
@@ -38,17 +39,12 @@
                 </ContentView>
             </ListView.itemTemplate>
         </ListView>
-        <Label text="map will come here - checking if answers are there"
-               row="3"
-               visibility="{{question.answers ? 'collapsed' : 'visible'}}"
-               backgroundColor="deepPink"/>
-
-        <!-- <maps:mapView visibility="{{question.mapQuestion ? 'visible' : 'collapsed'}}"
-                
-                latitude="{{question.mapSettings.latitude}}"
-                longitude="{{question.mapSettings.longitude}}"
-                zoom="{{question.mapSettings.zoom}}"
-                mapReady="onMapReady"
-                coordinateTapped="onCoordinateTapped"/> -->
+        <maps:mapView visibility="{{question.answers ? 'collapsed' : 'visible'}}"
+                      row="3"
+                      latitude="{{question.mapSettings.latitude}}"
+                      longitude="{{question.mapSettings.longitude}}"
+                      zoom="{{question.mapSettings.zoom}}"
+                      mapReady="onMapReady"
+                      coordinateTapped="onCoordinateTapped"/>
     </GridLayout>
 </Page>
