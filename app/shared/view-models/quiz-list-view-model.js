@@ -46,13 +46,11 @@ function QuizListViewModel(items) {
         if (config.useLocalData) {
             return new Promise(resolve =>
                 setTimeout(resolve, 3000)
-                // changeBack 5000 YS
             ).then(loadMockDataQuizzes);
         }
         else {
             return new Promise(resolve =>
                 setTimeout(resolve, 3000)
-                // changeBack 5000 YS
             ).then(loadBackEndDataQuizzes);
         }
     }

@@ -26,14 +26,12 @@ function quizViewModel(quiz) {
     viewModel.loadQuestions = function () {
         if (config.useLocalData) {
             return new Promise(resolve =>
-                setTimeout(resolve, 0)
-                // changeBack 3000 YS
+                setTimeout(resolve, 2000)
             ).then(loadMockDataQuestions);
         }
         else {
             return new Promise(resolve =>
-                setTimeout(resolve, 0)
-                // changeBack 3000 YS
+                setTimeout(resolve, 2000)
             ).then(loadBackEndDataQuestions);
         }
     }
@@ -51,7 +49,7 @@ viewModel.postScore = function () {
     var presentableScore = utilities.convertFractionToPercentageString(finalScore);
     viewModel.set("presentableScore", presentableScore);
 
-    if (config.useLocalData) {
+    if (!config.useLocalData) {
         return fetch(config.apiUrl + 'quizzes/' + quiz.id, {
             method: "PATCH",
             body: JSON.stringify({
