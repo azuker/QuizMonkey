@@ -16,9 +16,9 @@
                loaded="quizNameLoaded"/>
         <ContentView class="shareIconContainer"
                      row="2"
-                     horizontalAlignment="right">
-            <Image tap="shareTapped"
-                   src='res://share'
+                     horizontalAlignment="right"
+                     tap="shareTapped">
+            <Image src='res://share'
                    stretch="AspectFill"
                    horizontalAlignment="center"
                    verticalAlignment="center"/>
@@ -34,7 +34,7 @@
                      class="communityScoreContainer"
                      horizontalAlignment="center"
                      orientation="horizontal"
-                     visibility="{{quiz.averageScore? 'visible' : 'collapsed'}}">
+                     visibility="{{quiz.averageScoreExists? 'visible' : 'collapsed'}}">
             <Label text="Community Average:"
                    class="scoreTitleText" />
             <Label text="{{quiz.averageScore}}"
