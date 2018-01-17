@@ -40,25 +40,27 @@ function quizViewModel(quiz) {
         var newScore = viewModel.currentScore + 1;
         viewModel.currentScore = newScore;
     }
+postScore = function (finalScore) {
+    return fetch(config.apiUrl + 'quizzes/' + quiz.id, {
+        method: "PATCH",
+        body: JSON.stringify({
+            score: finalScore,
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(handleErrors);
+}
 
-viewModel.postScore = function () {
+viewModel.finalizeScore = function () {
     var correctAnswers = viewModel.currentScore;
     var quizLength = viewModel.questions.length;
     var finalScore = correctAnswers / quizLength;
     viewModel.set("finalScore", finalScore);
     var presentableScore = utilities.convertFractionToPercentageString(finalScore);
     viewModel.set("presentableScore", presentableScore);
-
     if (!config.useLocalData) {
-        return fetch(config.apiUrl + 'quizzes/' + quiz.id, {
-            method: "PATCH",
-            body: JSON.stringify({
-                score: finalScore,
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(handleErrors);
+        postScore(finalScore);
     }
 };
 

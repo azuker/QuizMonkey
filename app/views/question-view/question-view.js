@@ -84,7 +84,7 @@ navigateToNextPage = function () {
         navigationModule.goToQuestionView(quiz, questionIndex + 1);
     }
     else {
-        quiz.postScore();
+        quiz.finalizeScore();
         navigationModule.goToQuizSummaryView(quiz);
     };
 }
