@@ -4,7 +4,7 @@
       class="welcome-pageContainer imageBackgroundContainer">
     <StackLayout class="welcome-stackLayoutContainer"
                  orientation="vertical">
-        <Label text="Welcome to Quiz Monkey!"
+        <Label text="Welcome to QuizMonkey!"
                class="welcome-text"/>
         <Button text="Start Here"
                 class="navigationButton"
