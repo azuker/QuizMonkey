@@ -1,4 +1,5 @@
 var observableModule = require("data/observable");
+var platformModule = require("tns-core-modules/platform");
 
 function questionViewModel(question) {
     var viewModel = new observableModule.fromObject(question);
@@ -17,6 +18,20 @@ function questionViewModel(question) {
             }
             viewModel.answers = newAnswersArray;
         }
+        else {
+            var screenHeight = platformModule.screen.mainScreen.heightPixels;
+            var screenWidth = platformModule.screen.mainScreen.widthPixels;
+            var screenDensity = platformModule.screen.mainScreen.scale;
+            var zoom = question.mapSettings.zoom;
+            var calculatedZoom = Math.min(zoom, zoom * (screenHeight / 1920), zoom * (screenWidth / 1080));
+            var errorMarginRadius = question.errorMarginRadius;
+            var calculatedErrorMarginRadius = Math.max(errorMarginRadius,
+                errorMarginRadius * (screenHeight / 1920),
+                errorMarginRadius * (screenWidth / 1080),
+                errorMarginRadius * (3 / screenDensity));
+            viewModel.mapSettings.zoom = calculatedZoom;
+            viewModel.errorMarginRadius = calculatedErrorMarginRadius;
+        }
     }
 
     viewModel.checkMultipleChoiceAnswer = function (chosenAnswer) {
@@ -26,7 +41,7 @@ function questionViewModel(question) {
         correctAnswer.showCorrect = true;
         return chosenAnswer.isCorrect;
     };
-    
+
     getLongitudeDistance = function (longitude1, longitude2) {
         var rawDistance = Math.abs(longitude1 - longitude2);
         return Math.min(rawDistance, 360 - rawDistance)
