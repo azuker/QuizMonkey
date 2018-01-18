@@ -1,5 +1,5 @@
 var observableModule = require("data/observable");
-var platformModule = require("tns-core-modules/platform");
+var platformModule = require("platform");
 
 function questionViewModel(question) {
     var viewModel = new observableModule.fromObject(question);
