@@ -1,14 +1,14 @@
 var frameModule = require("ui/frame");
 
 exports.startupView = function () {
-    return "views/welcome-view/welcome-view";
+    return "views/welcome-view/welcome-view"
 }
 
 exports.goToQuizSummaryView = function (quiz) {
     var topmost = frameModule.topmost();
     topmost.navigate({
         moduleName: 'views/quiz-summary-view/quiz-summary-view',
-        context: { quiz: quiz },
+        bindingContext: quiz,
         backstackVisible: false,
         transition: {
             name: "slideTop",

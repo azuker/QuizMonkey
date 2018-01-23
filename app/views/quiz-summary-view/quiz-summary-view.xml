@@ -1,15 +1,15 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      navigatingTo="summaryPageNavigatedTo"
-      actionBarHidden="true">
+      actionBarHidden="true"
+      loaded="summaryViewLoaded">
     <GridLayout rows="auto, auto, auto, auto, *, auto, auto"
                 class="imageBackgroundContainer summary-gridContainer">
-        <Image src="{{quiz.image ? quiz.image : '~/images/unknownImage.png'}}"
+        <Image src="{{image ? image : '~/images/unknownImage.png'}}"
                class="quizSummaryImage quizImage"
                stretch="aspectFill"
                row="0"
                rowSpan="2"
                horizontalAlignment="right"/>
-        <Label text="{{quiz.name}}"
+        <Label text="{{name}}"
                row="0"
                class="quizName"
                horizontalAlignment="left"
@@ -27,20 +27,20 @@
                      horizontalAlignment="center">
             <Label text="Your Score:"
                    class="scoreTitleText" />
-            <Label text="{{quiz.presentableScore}}"
+            <Label text="{{presentableScore}}"
                    class="scoreText userScoreText"/>
         </StackLayout>
         <StackLayout row="3"
                      class="communityScoreContainer"
                      horizontalAlignment="center"
                      orientation="horizontal"
-                     visibility="{{quiz.averageScoreExists? 'visible' : 'collapsed'}}">
+                     visibility="{{averageScoreExists? 'visible' : 'collapsed'}}">
             <Label text="Community Average:"
                    class="scoreTitleText" />
-            <Label text="{{quiz.averageScore}}"
+            <Label text="{{averageScore}}"
                    class="scoreText averageScoreText" />
         </StackLayout>
-<Button text="back to quiz list"
+<Button text="choose another quiz"
         tap="backToQuizListTapped"
         class="navigationButton"
         row="5"/>
