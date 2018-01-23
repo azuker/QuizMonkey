@@ -1,7 +1,7 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
       xmlns:maps="nativescript-google-maps-sdk"
       actionBarHidden="true"
-      navigatingTo="questionPageNavigatedTo"
+      navigatingTo="questionPageNavigatingTo"
       loaded="onQuestionPageLoaded"
       unloaded="onQuestionPageUnloaded">
     <GridLayout rows="auto, auto, auto,*"

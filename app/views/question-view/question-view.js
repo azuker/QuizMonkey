@@ -23,7 +23,7 @@ setBackgroundColor = function (page) {
 }
 
 exports.onQuestionPageLoaded = function (args) {
-    const page = args.object;
+    var page = args.object;
     page.bindingContext = questionData;
     if (application.android) {
         application.android.addEventListener(application.AndroidApplication.activityBackPressedEvent, backOrLeavePressed);
@@ -56,9 +56,9 @@ exports.onLeaveTapped = function () {
     backOrLeavePressed();
 }
 
-exports.questionPageNavigatedTo = function (args) {
-    const page = args.object;
-    const context = page.navigationContext;
+exports.questionPageNavigatingTo = function (args) {
+    var page = args.object;
+    var context = page.navigationContext;
     quiz = context.quiz;
     questionIndex = context.currentQuestionIndex;
     quizLength = quiz.questions.length;
