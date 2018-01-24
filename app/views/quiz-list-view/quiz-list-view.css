@@ -29,3 +29,7 @@
 .quizList-quizAverage{
     text-align: center;
 }
+
+.quizList-container{
+    background-color: silver;
+}

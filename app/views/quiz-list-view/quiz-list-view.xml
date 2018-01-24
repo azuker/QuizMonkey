@@ -1,7 +1,8 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
       actionBarHidden="true"
       loaded="onQuizListPageLoaded">
-    <GridLayout rows="auto, *">
+    <GridLayout rows="auto, *"
+                class="quizList-container">
         <Label text="Choose Your Quiz"
                class="quizList-headerText imageBackgroundContainer" />
         <ListView items="{{ quizList }}"
