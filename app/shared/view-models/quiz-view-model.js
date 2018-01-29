@@ -24,7 +24,7 @@ function quizViewModel(quiz) {
     }
 
     viewModel.loadQuestions = function () {
-        if (config.useLocalData) {
+        if (config.useMockData) {
             return new Promise(resolve =>
                 setTimeout(resolve, 2000)
             ).then(loadMockDataQuestions);
@@ -59,7 +59,7 @@ viewModel.finalizeScore = function () {
     viewModel.set("finalScore", finalScore);
     var presentableScore = utilities.convertFractionToPercentageString(finalScore);
     viewModel.set("presentableScore", presentableScore);
-    if (!config.useLocalData) {
+    if (!config.useMockData) {
         postScore(finalScore);
     }
 };

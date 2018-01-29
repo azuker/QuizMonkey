@@ -1,15 +1,20 @@
 var platformModule = require("platform");
 
-var localHostAccessPath;
+var useLocalMockData = false;
+var serverIsRemote = true;
+var accessPath;
 
-if (platformModule.device.os === platformModule.platformNames.ios) {
-    localHostAccessPath = "localhost";
+if (serverIsRemote) {
+    var accessPath = "192.168.10.85";
+}
+else if (platformModule.device.os === platformModule.platformNames.ios) {
+    accessPath = "localhost";
 }
 else if (platformModule.device.os === platformModule.platformNames.android) {
-    localHostAccessPath = "10.0.2.2";
+    accessPath = "10.0.2.2";
 }
 
 module.exports = {
-    useLocalData: false,
-    apiUrl: "http://" + localHostAccessPath + ":3001/"
+    useMockData: useLocalMockData,
+    apiUrl: "http://" + accessPath + ":3001/"
 };

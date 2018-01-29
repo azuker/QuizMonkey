@@ -43,7 +43,7 @@ function QuizListViewModel(items) {
     };
 
     viewModel.loadQuizzes = function () {
-        if (config.useLocalData) {
+        if (config.useMockData) {
             return new Promise(resolve =>
                 setTimeout(resolve, 3000)
             ).then(loadMockDataQuizzes);
