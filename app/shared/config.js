@@ -4,9 +4,11 @@ var useLocalMockData = false;
 var serverIsRemote = true;
 
 var accessPath;
+var port = ":3001/";
 
 if (serverIsRemote) {
-    accessPath = "192.168.10.85"; /* paste remote server address here */
+    accessPath = "quizmonkeynodeapp.azurewebsites.net/"; 
+    port = "";
 }
 else if (platformModule.device.os === platformModule.platformNames.ios) {
     accessPath = "localhost";
@@ -17,5 +19,5 @@ else if (platformModule.device.os === platformModule.platformNames.android) {
 
 module.exports = {
     useMockData: useLocalMockData,
-    apiUrl: "http://" + accessPath + ":3001/"
+    apiUrl: "http://" + accessPath + port
 };
